@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "YPLib"
 include(":app")
- 
+include(":lib")
