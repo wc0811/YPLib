@@ -1,16 +1,18 @@
 plugins {
-    alias(libs.plugins.android.library)
+    alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    id("org.gradle.maven-publish")
 }
 
 android {
-    namespace = "com.yp.yplib"
+    namespace = "com.yp.sample"
     compileSdk = 35
 
     defaultConfig {
+        applicationId = "com.yp.sample"
         minSdk = 26
-        testOptions.targetSdk = 35
+        targetSdk = 35
+        versionCode = 1
+        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -25,11 +27,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_21
-        targetCompatibility = JavaVersion.VERSION_21
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = "21"
+        jvmTarget = "11"
     }
 }
 
@@ -40,22 +42,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    implementation(project(":library"))
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
-
-//publishing {
-//    publications {
-//        release(MavenPublication) {
-//            groupId = 'io.jitpack'
-//            artifactId = 'library'
-//            version = '1.0'
-//
-//            afterEvaluate {
-//                from components.release
-//            }
-//        }
-//    }
-//}
