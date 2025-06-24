@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.yp.yplib"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         minSdk = 26
@@ -19,8 +19,7 @@ android {
         release {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
         }
     }
@@ -30,6 +29,21 @@ android {
     }
     kotlinOptions {
         jvmTarget = "21"
+    }
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                groupId = "com.github.wc0811"
+                artifactId = "YPLib"
+                version = "1.0.0"
+            }
+        }
+        repositories {
+            mavenLocal()
+        }
     }
 }
 
@@ -45,17 +59,3 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
-
-//publishing {
-//    publications {
-//        release(MavenPublication) {
-//            groupId = 'io.jitpack'
-//            artifactId = 'library'
-//            version = '1.0'
-//
-//            afterEvaluate {
-//                from components.release
-//            }
-//        }
-//    }
-//}
