@@ -21,6 +21,5 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "YPLib"
-include(":app")
 include(":library")
 include(":sample")
