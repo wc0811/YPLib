@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-    id("org.gradle.maven-publish")
+    `maven-publish`
 }
 
 android {
@@ -38,11 +38,8 @@ afterEvaluate {
             create<MavenPublication>("release") {
                 groupId = "com.github.wc0811"
                 artifactId = "YPLib"
-                version = "1.0.3"
+                version = "1.0.4"
             }
-        }
-        repositories {
-            mavenLocal()
         }
     }
 }
