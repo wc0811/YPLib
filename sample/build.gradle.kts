@@ -46,4 +46,5 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation(project(":library"))
+//    implementation("com.github.wc0811:YPLib:1.0.0")
 }
